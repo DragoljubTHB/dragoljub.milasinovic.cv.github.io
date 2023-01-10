@@ -1,1 +1,152 @@
-<cv-nx-welcome></cv-nx-welcome>
+<div class="wrapper font-main">
+    <div class="left-side">
+        <div class="profile-container">
+            <img class="profile" src="assets/drago-img.jpeg" alt="{{data.firstName}} {{data.lastName}}">
+            <h1 class="name">{{data.firstName}} {{data.lastName}}</h1>
+            <h3 class="tagline">{{data.jobTitle}}</h3>
+        </div>
+        <div class="contact-container container-block">
+            <div>
+
+                <a href="mailto:{{data.email}}">
+                        <span>
+                            <fa-icon [icon]="emailIcon" size="2x"></fa-icon>
+                        </span>
+                </a>
+            </div>
+            <div>
+                <a href="tel:{{data.phone}}">
+                        <span>
+                            <fa-icon [icon]="phoneIcon" size="2x"></fa-icon>
+                        </span>
+                </a>
+            </div>
+            <div>
+                <a href="{{data.github}}">
+                        <span>
+                            <fa-icon [icon]="githubIcon" size="2x"></fa-icon>
+                        </span>
+                </a>
+            </div>
+            <div>
+                <a href="{{data.linkedin}}">
+                        <span>
+                            <fa-icon [icon]="linkedInIcon" size="2x"></fa-icon>
+                        </span>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="education-container container-block">
+            <h2 class="container-block-title">Education</h2>
+            <div class="item">
+                <h4 class="degree">M.Sc. Applied Informatics</h4>
+                <h5 class="meta">Unversity of Applied Sciences Brandenburg</h5>
+                <div class="time">2016 - 2019</div>
+            </div><!--//item-->
+            <div class="item">
+                <h4 class="degree">B.Sc. Applied Informatics</h4>
+                <h5 class="meta">Unversity of Applied Sciences Brandenburg</h5>
+                <div class="time">2013 - 2016</div>
+            </div><!--//item-->
+        </div><!--//education-container-->
+
+
+        <div class="education-container container-block">
+            <h2 class="container-block-title">Awards</h2>
+            <div class="item">
+                <h4 class="degree">ADAC</h4>
+                <h5 class="meta">Acknowledge of Exceptional Performance</h5>
+                <p>Taken part in different extracurricuilar activities.</p>
+                <div class="time">Sept 2019</div>
+            </div><!--//item-->
+        </div><!--//education-container-->
+
+        <div class="languages-container container-block">
+            <h2 class="container-block-title">Languages</h2>
+            <ul class="list-unstyled interests-list">
+                <li>Spanish <span class="lang-desc">(Native)</span></li>
+                <li>English <span class="lang-desc">(Advanced)</span></li>
+                <li>German <span class="lang-desc">(Advanced)</span></li>
+                <li>Italian <span class="lang-desc">(Advanced)</span></li>
+                <li>Slovenian <span class="lang-desc">(Confident)</span></li>
+                <li>Serbian <span class="lang-desc">(Confident)</span></li>
+                <li>French <span class="lang-desc">(Basic)</span></li>
+                <li>Russian <span class="lang-desc">(Basic)</span></li>
+            </ul>
+        </div><!--//interests-->
+
+        <div class="interests-container container-block">
+            <h2 class="container-block-title">Technical Skills</h2>
+            <ul class="list-unstyled interests-list">
+                <li>Tensorflow</li>
+                <li>Pytorch</li>
+                <li>Sci-Kit learn</li>
+                <li>Pandas</li>
+                <li>Django</li>
+                <li>Python</li>
+                <li>Qiskit</li>
+                <li>Spring-Boot</li>
+                <li>Spring-Aop</li>
+                <li>AMQP(RabbitMQ)</li>
+                <li>Docker</li>
+                <li>Kubernettes</li>
+                <li>Helm Charts</li>
+                <li>CI/CD</li>
+                <li>AWS</li>
+                <li>HTML</li>
+                <li>CSS ( LESS , SCSS )</li>
+                <li>Javascript</li>
+                <li>Typescript</li>
+                <li>D3.js</li>
+                <li>jQuery</li>
+                <li>Angular</li>
+                <li>Ionic</li>
+                <li>Cordova</li>
+                <li>Node</li>
+                <li>Mysql</li>
+            </ul>
+        </div><!--//interests-->
+
+
+    </div>
+    <div class="right-side">
+
+        <section class="section summary-section">
+            <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Career Profile</h2>
+            <div class="summary">
+                <p class="color-blod">
+                    Professional Background
+                </p>
+                Government institutions interfaces integration to digitize financial data access.
+                Swiss Telco omni-channel development to support core processes.
+                Cable networks maintenance prediction development.
+                CRM for quality control of shipped goods.
+                Finishing my Master studies, I worked as a scientific assistant in an IT-Security project with multiple
+                project partners designing and building a virtual environment and implementing learning algorithms.
+                Concurrently I supported master students on their term projects and written programming assignments for
+                quantum computing students.
+            </div><!--//summary-->
+        </section><!--//section-->
+
+        <section class="section experiences-section">
+            <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Experiences</h2>
+
+            <div class="item" *ngFor="let experience of experiences | orderBy:'desc': 'fromDate.year'">
+                <div class="meta">
+                    <div class="upper-row">
+                        <h3 class="job-title">{{experience.title}}</h3>
+                        <div class="time"> {{experience.fromDate.month}} {{experience.fromDate.year}}
+                            - {{experience.toDate}}</div>
+                    </div><!--//upper-row-->
+                    <div class="company">{{experience.company}}</div>
+                </div><!--//meta-->
+                <div class="details">
+                    <p>{{experience.description}}</p>
+                </div><!--//details-->
+            </div><!--//item-->
+
+        </section><!--//section-->
+    </div>
+</div>
