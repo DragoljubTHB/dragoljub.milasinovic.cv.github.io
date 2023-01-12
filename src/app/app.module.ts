@@ -6,10 +6,11 @@ import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome
 
 import {OrderbyPipe} from "./orderby.pipe";
 import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [AppComponent, OrderbyPipe],
-  imports: [BrowserModule,  FontAwesomeModule],
+  imports: [BrowserModule,  FontAwesomeModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

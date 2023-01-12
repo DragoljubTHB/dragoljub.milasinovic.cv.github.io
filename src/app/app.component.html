@@ -1,5 +1,5 @@
 <div class="wrapper font-main">
-    <div class="left-side">
+    <div class="left-side" [style.background]="leftSideBackgroundColor | async">
         <div class="profile-container">
             <img class="profile" src="assets/drago-img.jpeg" alt="{{data.firstName}} {{data.lastName}}">
             <h1 class="name">{{data.firstName}} {{data.lastName}}</h1>
@@ -94,6 +94,7 @@
                 <li>Kubernettes</li>
                 <li>Helm Charts</li>
                 <li>CI/CD</li>
+                <li>OpenShift</li>
                 <li>AWS</li>
                 <li>HTML</li>
                 <li>CSS ( LESS , SCSS )</li>
@@ -114,24 +115,28 @@
     <div class="right-side">
 
         <section class="section summary-section">
-            <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Career Profile</h2>
+            <h2 class="section-title" [style.color]="rightSideSectionTitleColor | async">
+                <span class="icon-holder"
+                      [style.background]="rightSideSectionTitleColor | async"><fa-icon
+                        [icon]="faBiefcase"></fa-icon><i class="fas fa-user"></i></span>Career Profile
+            </h2>
             <div class="summary">
-                <p class="color-blod">
-                    Professional Background
-                </p>
-                Government institutions interfaces integration to digitize financial data access.
-                Swiss Telco omni-channel development to support core processes.
-                Cable networks maintenance prediction development.
-                CRM for quality control of shipped goods.
-                Finishing my Master studies, I worked as a scientific assistant in an IT-Security project with multiple
-                project partners designing and building a virtual environment and implementing learning algorithms.
-                Concurrently I supported master students on their term projects and written programming assignments for
-                quantum computing students.
+                <p class="color-blod">Professional Background</p>
+                <p>Dragoljub Milasinovic brings 3 years of experience in Data Science and Machine Learning and 4 years
+                    of experience as a Full Stack Developer in both Agile and Waterfall contexts implementing modern
+                    stack applications.</p>
+                <p>Prior to Accenture Dragoljub was a Scientific Assistant at the University of Applied Sciences
+                    Brandenburg & a Consultant for NetworkedAssets.</p>
+                <p>Dragoljub holds a Masters degree in science of applied informatics & an ADAC award.</p>
             </div><!--//summary-->
         </section><!--//section-->
 
         <section class="section experiences-section">
-            <h2 class="section-title"><span class="icon-holder"><i class="fas fa-briefcase"></i></span>Experiences</h2>
+            <h2 class="section-title" [style.color]="rightSideSectionTitleColor | async">
+                <span class="icon-holder"
+                      [style.background]="rightSideIconHolderBackground | async"><fa-icon
+                        [icon]="faBiefcase"></fa-icon></span>Experiences
+            </h2>
 
             <div class="item" *ngFor="let experience of experiences | orderBy:'desc': 'fromDate.year'">
                 <div class="meta">
@@ -143,7 +148,7 @@
                     <div class="company">{{experience.company}}</div>
                 </div><!--//meta-->
                 <div class="details">
-                    <p>{{experience.description}}</p>
+                    <div [innerHTML]="experience.description"></div>
                 </div><!--//details-->
             </div><!--//item-->
 
