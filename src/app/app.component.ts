@@ -18,6 +18,9 @@ export class AppComponent {
     fullStackDeveloper = 'Full Stack Developer'
     devOpsEngineer = 'DevOps Engineer'
     dataScientist = 'Data Scientist'
+    shortRoleToLongRole = {
+        'fsd': this.fullStackDeveloper, 'doe': this.devOpsEngineer, 'ds':this.dataScientist
+    }
     data: any = {
         firstName: "Dragoljub",
         lastName: "Milasinovic",
@@ -45,7 +48,7 @@ export class AppComponent {
                 '<p>A go to person for many "how to" topics regarding architecture and Ops.</p>'
         },
         {
-            tags: [this.fullStackDeveloper, this.fullStackDeveloper],
+            tags: [this.fullStackDeveloper, this.devOpsEngineer],
             title: 'DevOps Engineer',
             company: 'Swisscom',
             companyBrand: 'https://rcp.production.scsstatic.ch/content/dam/assets/about/unternehmen/marke/stages-teaser/liveform-anim-448x448-4fps.gif',
@@ -101,7 +104,7 @@ export class AppComponent {
             description: '<p>Research on predictive maintenance for DOCSIS cable networks and automatic documentation.</p>'
         },
         {
-            tags: [this.fullStackDeveloper, this.fullStackDeveloper],
+            tags: [this.fullStackDeveloper],
             title: 'Fron-End Developer',
             company: 'ORCA Geoservices',
             companyBrand: 'https://media.licdn.com/dms/image/C4E0BAQEWB5HB1m7cGw/company-logo_200_200/0/1647440727352?e=2147483647&v=beta&t=yNckgo4Iv31TvNFqjdmKijfIS_2ZyfMtWE3GOdk8aKU',
@@ -114,6 +117,7 @@ export class AppComponent {
             description: '<p>Develop mainly front end applications supporting goods controlling processes around the globe.</p>'
         }
     ];
+    experiences$
     routeToTheme: any = {
         'sbb': {
             'leftSideBackgroundColor': '#ec0000',
@@ -136,6 +140,9 @@ export class AppComponent {
     rightSideIconHolderBackground: Observable<string>;
 
     constructor(private router: Router, private actRoute: ActivatedRoute) {
+
+        let behaviorSubject = new BehaviorSubject(this.experiences);
+        this.experiences$ = behaviorSubject.asObservable();
 
         let routeQueryParamCompany$ = this.router.events.pipe(
             filter(e => e instanceof NavigationEnd),
@@ -160,6 +167,23 @@ export class AppComponent {
             // @ts-ignore
             map((e: string) => this.routeToTheme[e]?.rightSideIconHolderBackground ?? null),
         );
-        routeQueryParamRole$.subscribe(console.log)
+
+        routeQueryParamRole$
+            .pipe(
+                filter(role => role != null),
+            // @ts-ignore
+                map(role => this.shortRoleToLongRole[role])
+            )
+            .subscribe(role => {
+            console.log(
+                this.experiences.filter(
+                    e => e.tags.find(t => t === role) != undefined
+                ))
+            behaviorSubject.next(
+                this.experiences.filter(
+                    e => e.tags.find(t => t === role) != undefined
+                )
+            );
+        })
     }
 }

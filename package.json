@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "deploy-gh" : "nx build --base-href https://dragoljubthb.github.io/dragoljub.milasinovic.cv.github.io/ && ngh --no-silent"
+    "deploy-gh": "nx build --base-href https://dragoljubthb.github.io/dragoljub.milasinovic.cv.github.io/ && ngh --no-silent"
   },
   "private": true,
   "dependencies": {
