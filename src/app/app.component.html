@@ -7,7 +7,6 @@
         </div>
         <div class="contact-container container-block">
             <div>
-
                 <a href="mailto:{{data.email}}">
                         <span>
                             <fa-icon [icon]="emailIcon" size="2x"></fa-icon>
@@ -37,7 +36,6 @@
             </div>
         </div>
 
-
         <div class="education-container container-block">
             <h2 class="container-block-title">Education</h2>
             <div class="item">
@@ -51,7 +49,6 @@
                 <div class="time">2013 - 2016</div>
             </div><!--//item-->
         </div><!--//education-container-->
-
 
         <div class="education-container container-block">
             <h2 class="container-block-title">Awards</h2>
@@ -73,6 +70,7 @@
                 <li>Slovenian <span class="lang-desc">(Confident)</span></li>
                 <li>Serbian <span class="lang-desc">(Confident)</span></li>
                 <li>French <span class="lang-desc">(Basic)</span></li>
+                <li>Catalan <span class="lang-desc">(Confident)</span></li>
                 <li>Russian <span class="lang-desc">(Basic)</span></li>
             </ul>
         </div><!--//interests-->
@@ -87,6 +85,8 @@
                 <li>Django</li>
                 <li>Python</li>
                 <li>Qiskit</li>
+                <li>DB</li>
+                <li>Data Leak</li>
                 <li>Spring-Boot</li>
                 <li>Spring-Aop</li>
                 <li>AMQP(RabbitMQ)</li>
@@ -105,8 +105,8 @@
                 <li>Angular</li>
                 <li>Ionic</li>
                 <li>Cordova</li>
-                <li>Node</li>
-                <li>Mysql</li>
+                <li>Node.js</li>
+                <li>SQL</li>
             </ul>
         </div><!--//interests-->
 
@@ -117,8 +117,8 @@
         <section class="section summary-section">
             <h2 class="section-title" [style.color]="rightSideSectionTitleColor | async">
                 <span class="icon-holder"
-                      [style.background]="rightSideSectionTitleColor | async"><fa-icon
-                        [icon]="faBiefcase"></fa-icon><i class="fas fa-user"></i></span>Career Profile
+                      [style.background]="rightSideIconHolderBackground | async"><fa-icon
+                        [icon]="faBiefcase" size="xl"></fa-icon><i class="fas fa-user"></i></span>Career Profile
             </h2>
             <div class="summary">
                 <p class="color-blod">Professional Background</p>
@@ -135,18 +135,26 @@
             <h2 class="section-title" [style.color]="rightSideSectionTitleColor | async">
                 <span class="icon-holder"
                       [style.background]="rightSideIconHolderBackground | async"><fa-icon
-                        [icon]="faBiefcase"></fa-icon></span>Experiences
+                        [icon]="faBiefcase" size="xl"></fa-icon></span>Experiences
             </h2>
 
             <div class="item" *ngFor="let experience of experiences | orderBy:'desc': 'fromDate.year'">
-                <div class="meta">
-                    <div class="upper-row">
-                        <h3 class="job-title">{{experience.title}}</h3>
-                        <div class="time"> {{experience.fromDate.month}} {{experience.fromDate.year}}
-                            - {{experience.toDate}}</div>
-                    </div><!--//upper-row-->
-                    <div class="company">{{experience.company}}</div>
-                </div><!--//meta-->
+
+                <div class="meta-company">
+                    <div class="company-brand">
+                        <img [src]="experience.companyBrand">
+                    </div>
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{experience.title}}</h3>
+                            <div class="time"> {{experience.fromDate.month}} {{experience.fromDate.year}}
+                                - {{experience.toDate}}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{experience.company}}</div>
+                    </div><!--//meta-->
+                </div>
+
+
                 <div class="details">
                     <div [innerHTML]="experience.description"></div>
                 </div><!--//details-->

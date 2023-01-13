@@ -90,6 +90,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
   fa-icon {
     color: whitesmoke;
   }
@@ -114,9 +115,9 @@
     margin-bottom: 20px;
 
     .icon-holder {
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
       margin-right: 10px;
       display: inline-block;
       color: #fff;
@@ -151,8 +152,27 @@
     }
   }
 
+  .meta-company {
+    display: flex;
+
+    .company-brand {
+      max-height: 50px;
+      align-items: center;
+      flex-basis: 60px;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+
+  .meta {
+    flex-grow: 8;
+  }
+
   .upper-row {
-    position: relative;
+    //position: relative;
     overflow: hidden;
     margin-bottom: 2px;
   }
@@ -167,8 +187,7 @@
 
   .time {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 20px;
     color: #97AAC3;
   }
 

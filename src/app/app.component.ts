@@ -1,21 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons'
 import {faBriefcase, faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
-import {NavigationEnd, Router} from "@angular/router";
-import {filter, map, Observable} from "rxjs";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {BehaviorSubject, filter, map, Observable} from "rxjs";
 
 @Component({
     selector: 'cv-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
     linkedInIcon = faLinkedinIn;
     githubIcon = faGithub;
     phoneIcon = faPhone;
     emailIcon = faEnvelope;
     faBiefcase = faBriefcase;
-    title = 'cv';
+    fullStackDeveloper = 'Full Stack Developer'
+    devOpsEngineer = 'DevOps Engineer'
+    dataScientist = 'Data Scientist'
     data: any = {
         firstName: "Dragoljub",
         lastName: "Milasinovic",
@@ -27,8 +29,10 @@ export class AppComponent implements OnInit {
     }
     experiences = [
         {
+            tags: [this.fullStackDeveloper, this.fullStackDeveloper],
             title: 'Back-End Developer',
             company: 'German Gov. Financial Institution',
+            companyBrand: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Informationstechnikzentrum_Bund_logo.svg',
             fromDate: {
                 year: '2021',
                 month: 'Sept'
@@ -41,8 +45,10 @@ export class AppComponent implements OnInit {
                 '<p>A go to person for many "how to" topics regarding architecture and Ops.</p>'
         },
         {
+            tags: [this.fullStackDeveloper, this.fullStackDeveloper],
             title: 'DevOps Engineer',
             company: 'Swisscom',
+            companyBrand: 'https://rcp.production.scsstatic.ch/content/dam/assets/about/unternehmen/marke/stages-teaser/liveform-anim-448x448-4fps.gif',
             fromDate: {
                 year: '2020',
                 month: 'Sep'
@@ -53,8 +59,10 @@ export class AppComponent implements OnInit {
                 '<p>Responsible for full stack development, it\'s delivery. Supported tech leads with innovation and design decisions.</p>'
         },
         {
+            tags: [this.dataScientist, this.fullStackDeveloper, this.devOpsEngineer],
             title: 'R&D',
             company: 'German Interior Affairs Institution',
+            companyBrand: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/BMI_Logo.svg',
             fromDate: {
                 year: '2019',
                 month: 'Sept'
@@ -67,8 +75,10 @@ export class AppComponent implements OnInit {
                 '<p>Applied Natural Language Processing to extract meaning and entity references. ( Co-reference resolution ).</p>'
         },
         {
+            tags: [this.dataScientist],
             title: 'Data Scientist',
             company: 'University of Applied Sciences Brandenburg',
+            companyBrand: 'https://www.mystipendium.de/sites/default/files/th-brandenburg.png',
             fromDate: {
                 year: '2019',
                 month: 'Mar'
@@ -78,8 +88,10 @@ export class AppComponent implements OnInit {
             description: '<p>Design and develop programming tasks for students on Quantum computing.</p>'
         },
         {
+            tags: [this.dataScientist],
             title: 'R&D',
             company: 'Networked Assets',
+            companyBrand: 'https://www.networkedassets.com/wp-content/themes/basetheme/assets/images/logo_with_text.svg',
             fromDate: {
                 year: '2019',
                 month: 'Jan'
@@ -89,8 +101,10 @@ export class AppComponent implements OnInit {
             description: '<p>Research on predictive maintenance for DOCSIS cable networks and automatic documentation.</p>'
         },
         {
+            tags: [this.fullStackDeveloper, this.fullStackDeveloper],
             title: 'Fron-End Developer',
             company: 'ORCA Geoservices',
+            companyBrand: 'https://media.licdn.com/dms/image/C4E0BAQEWB5HB1m7cGw/company-logo_200_200/0/1647440727352?e=2147483647&v=beta&t=yNckgo4Iv31TvNFqjdmKijfIS_2ZyfMtWE3GOdk8aKU',
             fromDate: {
                 year: '2017',
                 month: 'Feb'
@@ -100,7 +114,6 @@ export class AppComponent implements OnInit {
             description: '<p>Develop mainly front end applications supporting goods controlling processes around the globe.</p>'
         }
     ];
-
     routeToTheme: any = {
         'sbb': {
             'leftSideBackgroundColor': '#ec0000',
@@ -122,51 +135,31 @@ export class AppComponent implements OnInit {
     rightSideSectionTitleColor: Observable<string>;
     rightSideIconHolderBackground: Observable<string>;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private actRoute: ActivatedRoute) {
 
-        let route$ = this.router.events.pipe(
+        let routeQueryParamCompany$ = this.router.events.pipe(
             filter(e => e instanceof NavigationEnd),
-        // @ts-ignore
-            map(e => e.url.replace('/', ''))
+            // @ts-ignore
+            map(e => this.actRoute.snapshot.queryParamMap.get('company'))
+        );
+        let routeQueryParamRole$ = this.router.events.pipe(
+            filter(e => e instanceof NavigationEnd),
+            // @ts-ignore
+            map(e => this.actRoute.snapshot.queryParamMap.get('role'))
         );
 
-        this.leftSideBackgroundColor = route$.pipe(
+        this.leftSideBackgroundColor = routeQueryParamCompany$.pipe(
             // @ts-ignore
             map((e: string) => this.routeToTheme[e]?.leftSideBackgroundColor ?? null),
         );
-        this.rightSideSectionTitleColor = route$.pipe(
+        this.rightSideSectionTitleColor = routeQueryParamCompany$.pipe(
             // @ts-ignore
             map((e: string) => this.routeToTheme[e]?.rightSideSectionTitleColor ?? null),
         );
-        this.rightSideIconHolderBackground = route$.pipe(
+        this.rightSideIconHolderBackground = routeQueryParamCompany$.pipe(
             // @ts-ignore
             map((e: string) => this.routeToTheme[e]?.rightSideIconHolderBackground ?? null),
         );
-    }
-
-    ngOnInit(): void {
-        console.log("router: ", this.router.url)
-    }
-
-    public mapLeftSideBackgroundColor(url: string): string {
-        /***
-         * left-side background: leftSideBackgroundColor
-         *
-         * right-side
-         * styles section-title color
-         * styles section-title icon-holder background
-         */
-        this.routeToTheme[url].leftSideBackgroundColor
-
-        switch (url) {
-            case 'sbb':
-                return 'red'
-            case 'google':
-                return 'blue'
-            default:
-                return 'green'
-        }
-
-
+        routeQueryParamRole$.subscribe(console.log)
     }
 }
