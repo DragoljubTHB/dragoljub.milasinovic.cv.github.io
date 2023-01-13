@@ -19,7 +19,7 @@ export class AppComponent {
     devOpsEngineer = 'DevOps Engineer'
     dataScientist = 'Data Scientist'
     shortRoleToLongRole = {
-        'fsd': this.fullStackDeveloper, 'doe': this.devOpsEngineer, 'ds':this.dataScientist
+        'fsd': this.fullStackDeveloper, 'doe': this.devOpsEngineer, 'ds': this.dataScientist
     }
     data: any = {
         firstName: "Dragoljub",
@@ -171,19 +171,17 @@ export class AppComponent {
         routeQueryParamRole$
             .pipe(
                 filter(role => role != null),
-            // @ts-ignore
+                // @ts-ignore
                 map(role => this.shortRoleToLongRole[role])
             )
             .subscribe(role => {
-            console.log(
-                this.experiences.filter(
-                    e => e.tags.find(t => t === role) != undefined
-                ))
-            behaviorSubject.next(
-                this.experiences.filter(
-                    e => e.tags.find(t => t === role) != undefined
-                )
-            );
-        })
+                behaviorSubject.next(
+                    this.experiences
+                        .filter(
+                            e => e.tags.find(t => t === role) != undefined
+                        )
+                        .sort((a, b) => a.fromDate < b.fromDate ? 1 : -1)
+                );
+            })
     }
 }
