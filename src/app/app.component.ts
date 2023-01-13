@@ -62,6 +62,19 @@ export class AppComponent {
                 '<p>Responsible for full stack development, it\'s delivery. Supported tech leads with innovation and design decisions.</p>'
         },
         {
+            tags: [this.fullStackDeveloper, this.devOpsEngineer, this.dataScientist],
+            title: this.fullStackDeveloper,
+            company: 'Accenture',
+            companyBrand: 'https://logos-world.net/wp-content/uploads/2020/06/Accenture-Emblem-700x394.png',
+            fromDate: {
+                year: '2020',
+                month: 'Sep'
+            },
+            toDate: 'Jan 2023',
+            // tslint:disable-next-line:max-line-length
+            description: '<p>Client consultation, design and its implementation on cloud native architecture.</p>'
+        },
+        {
             tags: [this.dataScientist, this.fullStackDeveloper, this.devOpsEngineer],
             title: 'R&D',
             company: 'German Interior Affairs Institution',
