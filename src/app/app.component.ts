@@ -15,6 +15,33 @@ export class AppComponent {
     phoneIcon = faPhone;
     emailIcon = faEnvelope;
     faBiefcase = faBriefcase;
+    routeToTheme: any = {
+        'sbb': {
+            'leftSideBackgroundColor': '#ec0000',
+            'rightSideSectionTitleColor': '#ec0000',
+            'rightSideIconHolderBackground': '#ec0000',
+        },
+        'google': {
+            'leftSideBackgroundColor': '#4285F4',
+            'rightSideSectionTitleColor': '#34A853',
+            'rightSideIconHolderBackground': '#EA4335',
+        },
+        'celonis': {
+            'leftSideBackgroundColor': '#5ccc50',
+            'rightSideSectionTitleColor': '#5ccc50',
+            'rightSideIconHolderBackground': '#5ccc50',
+        },
+        'acn': {
+            'leftSideBackgroundColor': '#a100ff',
+            'rightSideSectionTitleColor': '#a100ff',
+            'rightSideIconHolderBackground': '#a100ff',
+        },
+    }
+    leftSideBackgroundColor: Observable<string>;
+    rightSideSectionTitleColor: Observable<string>;
+    rightSideIconHolderBackground: Observable<string>;
+
+
     fullStackDeveloper = 'Full Stack Developer'
     devOpsEngineer = 'DevOps Engineer'
     dataScientist = 'Data Scientist'
@@ -130,27 +157,7 @@ export class AppComponent {
             description: '<p>Develop mainly front end applications supporting goods controlling processes around the globe.</p>'
         }
     ];
-    experiences$
-    routeToTheme: any = {
-        'sbb': {
-            'leftSideBackgroundColor': '#ec0000',
-            'rightSideSectionTitleColor': '#ec0000',
-            'rightSideIconHolderBackground': '#ec0000',
-        },
-        'google': {
-            'leftSideBackgroundColor': '#4285F4',
-            'rightSideSectionTitleColor': '#34A853',
-            'rightSideIconHolderBackground': '#EA4335',
-        },
-        'celonis': {
-            'leftSideBackgroundColor': '#5ccc50',
-            'rightSideSectionTitleColor': '#5ccc50',
-            'rightSideIconHolderBackground': '#5ccc50',
-        },
-    }
-    leftSideBackgroundColor: Observable<string>;
-    rightSideSectionTitleColor: Observable<string>;
-    rightSideIconHolderBackground: Observable<string>;
+    experiences$: Observable<any>
 
     constructor(private router: Router, private actRoute: ActivatedRoute) {
 
