@@ -9,6 +9,13 @@
 .font-main {
   font-family: 'Roboto', sans-serif;
 }
+@media (min-width: 800px) {
+  .wrapper {
+    margin-top: 24px;
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}
 
 @media (max-width: 800px) {
   .wrapper {
@@ -168,6 +175,13 @@
         max-height: 100%;
       }
     }
+    .toy-project {
+      margin-right: 10px;
+      img {
+        max-height: 150px;
+        min-width: 150px;
+      }
+    }
   }
 
   .meta {
@@ -214,6 +228,9 @@
     .item {
       margin-bottom: 15px;
     }
+  }
+  .demo {
+    display: flex;
   }
 }
 

@@ -1,4 +1,7 @@
-# Cv
+# Templatable CV:
+
+### adapt the template through query params: company, role
+### [Demo](https://dragoljubthb.github.io/dragoljub.milasinovic.cv.github.io/)
 
 <a href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 

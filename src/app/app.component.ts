@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons'
-import {faBriefcase, faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import {faBriefcase, faEnvelope, faPhone, faBookOpen, faPlay} from "@fortawesome/free-solid-svg-icons";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, map, Observable} from "rxjs";
 
@@ -15,6 +15,8 @@ export class AppComponent {
     phoneIcon = faPhone;
     emailIcon = faEnvelope;
     faBiefcase = faBriefcase;
+    faBookOpen = faBookOpen;
+    faPlay = faPlay;
     routeToTheme: any = {
         'sbb': {
             'leftSideBackgroundColor': '#ec0000',
