@@ -9,7 +9,7 @@
             <div>
                 <a href="mailto:{{data.email}}">
                         <span>
-                            <fa-icon [icon]="emailIcon" size="2x"></fa-icon>
+                            <fa-icon [icon]="emailIcon" size="2x">here</fa-icon>
                         </span>
                 </a>
             </div>
@@ -36,6 +36,7 @@
             </div>
         </div>
 
+        <div class="interests-container-container">
         <div class="interests-container container-block">
             <h2 class="container-block-title">Technical Skills</h2>
             <ul class="list-technical-skills">
@@ -47,7 +48,7 @@
                 <li>Python</li>
                 <li>Qiskit</li>
                 <li>DB</li>
-                <li>Data Leak</li>
+                <li>Data Lake</li>
                 <li>Spring-Boot</li>
                 <li>Spring-Aop</li>
                 <li>AMQP(RabbitMQ)</li>
@@ -58,13 +59,11 @@
                 <li>OpenShift</li>
                 <li>AWS</li>
                 <li>HTML</li>
-                <li>CSS ( LESS , SCSS )</li>
+                <li>CSS (LESS, SCSS)</li>
                 <li>Javascript</li>
                 <li>Typescript</li>
                 <li>D3.js</li>
                 <li>Angular</li>
-                <li>Ionic</li>
-                <li>Cordova</li>
                 <li>Node.js</li>
                 <li>SQL</li>
             </ul>
@@ -74,12 +73,12 @@
             <h2 class="container-block-title">Education</h2>
             <div class="item">
                 <h4 class="degree">M.Sc. Applied Informatics</h4>
-                <h5 class="meta">Unversity of Applied Sciences Brandenburg</h5>
+                <h5 class="meta">University of Applied Sciences Brandenburg</h5>
                 <div class="time">2017 - 2020</div>
             </div><!--//item-->
             <div class="item">
                 <h4 class="degree">B.Sc. Applied Informatics</h4>
-                <h5 class="meta">Unversity of Applied Sciences Brandenburg</h5>
+                <h5 class="meta">University of Applied Sciences Brandenburg</h5>
                 <div class="time">2014 - 2017</div>
             </div><!--//item-->
         </div><!--//education-container-->
@@ -89,7 +88,7 @@
             <div class="item">
                 <h4 class="degree">ADAC</h4>
                 <h5 class="meta">Acknowledge of Exceptional Performance</h5>
-                <p>Taken part in different extracurricuilar activities.</p>
+                <p>Taken part in different extracurricular activities.</p>
                 <div class="time">Sept 2019</div>
             </div><!--//item-->
         </div><!--//education-container-->
@@ -108,7 +107,7 @@
                 <li>Russian <span class="lang-desc">(Basic)</span></li>
             </ul>
         </div><!--//interests-->
-
+        </div>
 
     </div>
     <div class="right-side">
@@ -146,8 +145,8 @@
                     <div class="meta">
                         <div class="upper-row">
                             <h3 class="job-title">{{experience.title}}</h3>
-                            <div class="time"> {{experience.fromDate.month}} {{experience.fromDate.year}}
-                                - {{experience.toDate}}</div>
+                            <div class="time">{{experience.fromDate.month}} {{experience.fromDate.year}}
+                                - {{experience.toDate}}</div><div class="time">({{experience.period}})</div>
                         </div><!--//upper-row-->
                         <div class="company">{{experience.company}}</div>
                     </div><!--//meta-->
@@ -188,7 +187,7 @@
                         <p>This masters degree helped me to specialise as a data scientist.</p>
                         <p>My masters thesis was part of a cooperation project to implement a SIEM system in which I was
                             the responsible for the research, design and implementation of a recommendation engine.</p>
-                        <p>This endevour led me to build a penetration testing laboratory using a range of virtual
+                        <p>This endeavour led me to build a penetration testing laboratory using a range of virtual
                             machines and a custom network plan. Furthermore a big data pipeline was needed to feed the
                             recommendation engine. The integration of complex techniques was needed to achieve the
                             systems desired functionality e.g.: actor critic training & co-reference resolution in

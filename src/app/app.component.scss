@@ -22,6 +22,27 @@
     flex-direction: column;
   }
 }
+@media print {
+  title {
+    text-transform: uppercase;
+    content: "CV_Dragoljub_Milasinovic";
+  }
+  .wrapper {
+    flex-direction: row;
+  }
+  .interests-container-container * {
+    display: table;
+  }
+  
+}
+
+@page {
+  size: A4;
+  margin: 0;
+  .interests-container-container .interests-container{
+    page-break-inside: auto;
+  }
+}
 
 @mixin border-radius($radius: 5px) {
   -webkit-border-radius: $radius;
@@ -61,6 +82,9 @@
     color: rgba(256, 256, 256, 0.6);
     font-weight: 500;
     margin-bottom: 0px;
+  }
+  .period {
+    // white-space: nowrap;
   }
 }
 
