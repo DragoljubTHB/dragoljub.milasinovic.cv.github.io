@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons'
-import {faBriefcase, faEnvelope, faPhone, faBookOpen, faPlay} from "@fortawesome/free-solid-svg-icons";
+import {faBriefcase, faEnvelope, faPhone, faBookOpen, faPlay, faChartLine, faBoxOpen} from "@fortawesome/free-solid-svg-icons";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject, filter, map, Observable} from "rxjs";
 
@@ -16,6 +16,8 @@ export class AppComponent {
     emailIcon = faEnvelope;
     faBiefcase = faBriefcase;
     faBookOpen = faBookOpen;
+    faChartLine = faChartLine;
+    faBoxOpen = faBoxOpen;
     faPlay = faPlay;
     routeToTheme: any = {
         'sbb': {
@@ -110,7 +112,7 @@ export class AppComponent {
             // tslint:disable-next-line:max-line-length
             description: 
             '<div ><p>'+
-            'I have extensive experience in client consultation, design, and implementation of cloud-native architecture. I have delivered an omnichannel experience via SAFe organization, and been responsible for full-stack development and its delivery. I have supported tech leads with innovation and design decisions.</p><p>Key Skills:</p><ul><li>Cloud-native architecture design and implementation</li><li>Full-stack development</li><li>Domain Specific Languages</li><li>XML Schema Definition</li><li>Fine granular validation framework</li><li>DevOps code for infrastructure (Kubernetes, Jenkins, etc.)</li><li>Architecture and Ops support</li></ul><p>Professional Experience:</p><ul><li>Consulted with clients on software design and implemented cloud-native architecture, resulting in an omnichannel experience delivered via SAFe organization.</li><li>As a full-stack developer, I was responsible for the design, development, and delivery of software solutions.</li><li>Supported tech leads with innovation and design decisions, using my expertise in cloud-native architecture and related technologies.</li><li>Analyzed specifications and implemented solutions that supported a cloud-native approach, using domain-specific languages, XML schema definition, and fine granular validation frameworks.</li><li>Adapted existing DevOps code for infrastructure (Kubernetes, Jenkins, etc.) to meet project needs.</li><li>Served as a go-to person for many "how to" topics related to architecture and Ops.</li></ul></div>'
+            'I have extensive experience in client consultation, design, and implementation of cloud-native architecture. I have delivered an omnichannel experience via SAFe organization, and been responsible for full-stack development and its delivery. I have supported tech leads with innovation and design decisions.</p><p>Key Skills:</p><ul><li>Cloud-native architecture design and implementation</li><li>Full-stack development</li><li>Domain Specific Languages</li><li>DevOps/MLOps</li></ul><p>Professional Experience:</p><ul><li>Consulted with clients on software design and implemented cloud-native architecture, resulting in an omnichannel experience delivered via SAFe organization.</li><li>As a full-stack developer, I was responsible for the design, development, and delivery of software solutions.</li><li>Supported tech leads with innovation and design decisions, using my expertise in cloud-native architecture and related technologies.</li><li>Analyzed specifications and implemented solutions that supported a cloud-native approach, using domain-specific languages, XML schema definition, and fine granular validation frameworks.</li><li>Adapted existing DevOps code for infrastructure (Kubernetes, Jenkins, etc.) to meet project needs.</li><li>Served as a go-to person for many "how to" topics related to architecture and Ops.</li></ul></div>'
             /*
             '<p>Client consultation, design and its implementation on cloud native architecture:</p>'+
             '<p>Omnichannel experience delivered via SAFe organization.</p>' +
