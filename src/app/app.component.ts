@@ -45,6 +45,11 @@ export class AppComponent {
             'rightSideSectionTitleColor': '#76b900',
             'rightSideIconHolderBackground': '#1a1a1a',
         },
+        'swisscom': {
+            'leftSideBackgroundColor': '#1781e3',
+            'rightSideSectionTitleColor': '#1781e3',
+            'rightSideIconHolderBackground': '#ec0000',
+        },
     }
     leftSideBackgroundColor: Observable<string>;
     rightSideSectionTitleColor: Observable<string>;
