@@ -49,7 +49,17 @@ export class AppComponent {
             'leftSideBackgroundColor': '#1781e3',
             'rightSideSectionTitleColor': '#1781e3',
             'rightSideIconHolderBackground': '#ec0000',
-        },
+        }, // ##ffcc00
+        'nestlee': {
+            'leftSideBackgroundColor': '#65513d',
+            'rightSideSectionTitleColor': '#1781e3',
+            'rightSideIconHolderBackground': '#ec0000',
+        }, 
+        'post': {
+            'leftSideBackgroundColor': '#f49e00',
+            'rightSideSectionTitleColor': '#1781e3',
+            'rightSideIconHolderBackground': '#a51728',
+        }, 
     }
     leftSideBackgroundColor: Observable<string>;
     rightSideSectionTitleColor: Observable<string>;
