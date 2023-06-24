@@ -49,7 +49,7 @@ export class AppComponent {
             'leftSideBackgroundColor': '#1781e3',
             'rightSideSectionTitleColor': '#1781e3',
             'rightSideIconHolderBackground': '#ec0000',
-        }, // ##ffcc00
+        },
         'nestlee': {
             'leftSideBackgroundColor': '#65513d',
             'rightSideSectionTitleColor': '#1781e3',
@@ -59,6 +59,21 @@ export class AppComponent {
             'leftSideBackgroundColor': '#f49e00',
             'rightSideSectionTitleColor': '#1781e3',
             'rightSideIconHolderBackground': '#a51728',
+        }, 
+        'juliusbaer': {
+            'leftSideBackgroundColor': '#0000ee',
+            'rightSideSectionTitleColor': '#1781e3',
+            'rightSideIconHolderBackground': '#a51728',
+        }, 
+        'roche': {
+            'leftSideBackgroundColor': '#d0b1b9',
+            'rightSideSectionTitleColor': '#1781e3',
+            'rightSideIconHolderBackground': '#a51728',
+        }, 
+        'apple': {
+            'leftSideBackgroundColor': '#33333333',
+            'rightSideSectionTitleColor': '#1d1d1f',
+            'rightSideIconHolderBackground': '#161617cc',
         }, 
     }
     leftSideBackgroundColor: Observable<string>;
@@ -77,7 +92,7 @@ export class AppComponent {
         lastName: "Milasinovic",
         jobTitle: "Data Scientist, Full Stack Developer",
         email: "dragoljub.milasinovic@outlook.com",
-        phone: "privacy",
+        phone: "private",
         github: 'https://DragoljubTHB.com/',
         linkedin: 'https://www.linkedin.com/in/dragoljub-milasinovic-7a109949/'
     }
