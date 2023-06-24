@@ -74,7 +74,12 @@ export class AppComponent {
             'leftSideBackgroundColor': '#33333333',
             'rightSideSectionTitleColor': '#1d1d1f',
             'rightSideIconHolderBackground': '#161617cc',
-        }, 
+        },
+        'ubs': {
+            'leftSideBackgroundColor': '#e0e0e0',
+            'rightSideSectionTitleColor': '#d82021',
+            'rightSideIconHolderBackground': '#e60000',
+        },
     }
     leftSideBackgroundColor: Observable<string>;
     rightSideSectionTitleColor: Observable<string>;
